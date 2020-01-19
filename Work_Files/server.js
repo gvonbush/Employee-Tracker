@@ -17,17 +17,19 @@ connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
  
 connection.end();
 
+
+
 var questions = [
-    {
-        type: 'list',
-        name: 'initial_action',
-        message: 'What would you like to do?',
-        choices: ['Add Department', 'Add Role', 'Add Employee', 'View Department', 'View Role', 'View Employee', 'Update Employee Role'],
-        filter: function(val) {
-          return val.toLowerCase();
-        }
-    }
-    ];
+  {
+      type: 'list',
+      name: 'initial_action',
+      message: 'What would you like to do?',
+      choices: ['Add Department', 'Add Role', 'Add Employee', 'View Department', 'View Role', 'View Employee', 'Update Employee Role'],
+      filter: function(val) {
+        return val.toLowerCase();
+      }
+  }
+  ];
 
     // { 
     //   type: 'input', 
@@ -73,9 +75,10 @@ var questions = [
 
   
   inquirer.prompt(questions).then(answers => {
-      
+  
+        
     
-        action_decider(answers)
+    action_decider(answers)
   });
 
   function action_decider(answers){
